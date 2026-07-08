@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Abdul Rehman - Automation Engineer & Agentic AI Specialist. Expert in Make, n8n, Zapier, LangChain, and intelligent workflow automation."/>
+<title>Abdul Rehman — Automation Engineer & Agentic AI Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080b12;
+    --bg2: #0d1220;
+    --bg3: #111827;
+    --accent: #00d4ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --text: #e8edf5;
+    --muted: #6b7a99;
+    --border: rgba(255,255,255,0.07);
+    --card: rgba(255,255,255,0.04);
+    --glow: rgba(0,212,255,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5vw;
+    background: rgba(8,11,18,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--bg) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.85; color: var(--bg) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5vw 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(124,58,237,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(0,212,255,0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: var(--accent3);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-name .highlight {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title {
+    font-size: 1.1rem;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: rgba(232,237,245,0.7);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(0,212,255,0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(0,212,255,0.5);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.2);
+    background: var(--card);
+  }
+
+  /* ─── HERO PHOTO ─── */
+  .hero-photo-wrap {
+    position: relative;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-photo-ring {
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    padding: 3px;
+    position: relative;
+  }
+
+  .hero-photo-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: var(--bg2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-photo-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a2035, #0d1220);
+    font-family: 'Syne', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.05em;
+  }
+
+  .hero-photo-ring::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,212,255,0.15);
+    animation: spin 12s linear infinite;
+  }
+  .hero-photo-ring::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    border-radius: 50%;
+    border: 1px dashed rgba(124,58,237,0.1);
+    animation: spin 20s linear infinite reverse;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hero-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--accent), var(--text));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 6rem 5vw;
+    position: relative;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 520px;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  /* ─── SKILLS / COMPETENCIES ─── */
+  .skills-section { background: var(--bg2); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .skill-card:hover {
+    border-color: rgba(0,212,255,0.25);
+    transform: translateY(-2px);
+    background: rgba(0,212,255,0.04);
+  }
+
+  .skill-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .skill-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+  }
+
+  .timeline-item {
+    padding-left: 2.5rem;
+    padding-bottom: 3rem;
+    position: relative;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -5px;
+    top: 8px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 12px rgba(0,212,255,0.5);
+  }
+
+  .timeline-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .job-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex: 1;
+  }
+
+  .job-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+
+  .job-date {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .job-type {
+    font-size: 0.75rem;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .job-bullets li {
+    font-size: 0.9rem;
+    color: rgba(232,237,245,0.75);
+    display: flex;
+    gap: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .job-bullets li::before {
+    content: '▸';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.05em;
+  }
+
+  /* ─── AGENTIC AI ─── */
+  .ai-section { background: var(--bg2); }
+
+  .ai-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .ai-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .ai-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .ai-card:hover { transform: translateY(-3px); border-color: rgba(124,58,237,0.3); }
+  .ai-card:hover::before { opacity: 1; }
+
+  .ai-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .ai-card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .ai-card-text {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ─── TECH STACK ─── */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .stack-group {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+
+  .stack-group-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: rgba(232,237,245,0.8);
+    font-weight: 500;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .tag:hover { background: rgba(0,212,255,0.08); border-color: rgba(0,212,255,0.2); }
+
+  /* ─── EDUCATION ─── */
+  .edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    max-width: 520px;
+  }
+
+  .edu-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(124,58,237,0.15));
+    border: 1px solid rgba(0,212,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+  .edu-institution { color: var(--accent); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.25rem; }
+  .edu-location { color: var(--muted); font-size: 0.85rem; }
+
+  /* ─── CONTACT ─── */
+  .contact-section {
+    background: var(--bg2);
+    text-align: center;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+    text-align: left;
+  }
+
+  .contact-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .contact-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-2px); }
+
+  .contact-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .contact-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    word-break: break-all;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 2rem 5vw;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .footer-logo span { color: var(--accent); }
+
+  /* ─── FLOATING PARTICLES ─── */
+  .particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px; height: 2px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0;
+    animation: float linear infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.2; }
+    100% { transform: translateY(-10vh) translateX(40px); opacity: 0; }
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .hero-photo-wrap { order: -1; display: flex; justify-content: center; }
+    .hero-photo-ring { width: 200px; height: 200px; }
+    .hero-desc { margin: 0 auto 2.5rem; }
+    .hero-actions { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .nav-links { display: none; }
+    .job-meta { align-items: flex-start; }
+    footer { flex-direction: column; align-items: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Particles -->
+<div class="particles" id="particles"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Abdul<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#ai">AI Expertise</a></li>
+    <li><a href="#stack">Tech Stack</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for Remote Work
+      </div>
+      <h1 class="hero-name">
+        Abdul<br><span class="highlight">Rehman</span>
+      </h1>
+      <p class="hero-title">Automation Engineer & Agentic AI Specialist</p>
+      <p class="hero-desc">
+        Results-driven engineer with 2+ years designing, building, and deploying intelligent workflow automations and AI-powered agentic systems. Serving SaaS, FinTech, and MarTech clients globally.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+        <a href="#experience" class="btn-secondary">View My Work</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Workflows Built</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">60%</span>
+          <span class="stat-label">Manual Effort Reduced</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">99%</span>
+          <span class="stat-label">Uptime SLA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-ring">
+        <div class="hero-photo-inner">
+          <img src="./bl.jpeg" alt="Abdul Rehman" style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-inner">
+    <p class="section-label reveal">Core Competencies</p>
+    <h2 class="section-title reveal">What I Do Best</h2>
+    <p class="section-sub reveal">A full-stack of automation and AI capabilities to transform how businesses operate.</p>
+
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(0,212,255,0.1); color: #00d4ff;">⚙️</div>
+        <span class="skill-name">Workflow Automation</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(124,58,237,0.1); color: #7c3aed;">🔗</div>
+        <span class="skill-name">API & Webhook Dev</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(16,185,129,0.1); color: #10b981;">🤖</div>
+        <span class="skill-name">Agentic AI Systems</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(0,212,255,0.1); color: #00d4ff;">🔧</div>
+        <span class="skill-name">Make / n8n</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(124,58,237,0.1); color: #7c3aed;">⚡</div>
+        <span class="skill-name">Power Automate</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(16,185,129,0.1); color: #10b981;">🏢</div>
+        <span class="skill-name">HubSpot / Salesforce</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(245,158,11,0.1); color: #f59e0b;">💻</div>
+        <span class="skill-name">Python / JavaScript</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(239,68,68,0.1); color: #ef4444;">💬</div>
+        <span class="skill-name">AI Prompt Engineering</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(0,212,255,0.1); color: #00d4ff;">⚡</div>
+        <span class="skill-name">Zapier</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(124,58,237,0.1); color: #7c3aed;">🔌</div>
+        <span class="skill-name">SaaS Integrations</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(16,185,129,0.1); color: #10b981;">📊</div>
+        <span class="skill-name">CRM Automation</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:rgba(245,158,11,0.1); color: #f59e0b;">📝</div>
+        <span class="skill-name">Technical Docs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label reveal">Work History</p>
+    <h2 class="section-title reveal">Professional Experience</h2>
+    <p class="section-sub reveal">Building real-world automation systems that deliver measurable ROI.</p>
+
+    <div class="timeline">
+      <!-- Job 1 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <h3 class="job-title">Automation Engineer & Agentic AI Specialist</h3>
+          <div class="job-meta">
+            <span class="job-date">Jan 2023 – Present</span>
+            <span class="job-type">Remote</span>
+          </div>
+        </div>
+        <ul class="job-bullets">
+          <li>Designed and deployed 30+ automated workflows using Make, n8n, and Zapier across sales, ops, and support teams — reducing manual effort by 60%.</li>
+          <li>Built intelligent agentic AI pipelines using LangChain and AutoGen to automate multi-step reasoning tasks and autonomous decision-making workflows.</li>
+          <li>Developed REST API and webhook integrations connecting CRMs (HubSpot, Salesforce), project management tools, and communication platforms (Slack, Gmail, Notion).</li>
+          <li>Engineered end-to-end lead qualification automations for SaaS clients, integrating AI scoring models with CRM triggers and email nurture sequences.</li>
+          <li>Authored comprehensive technical documentation for all automation systems, enabling cross-functional teams to understand, maintain, and extend workflows.</li>
+          <li>Proactively monitored automation performance, resolved integration failures, and improved system reliability to maintain 99%+ uptime SLAs.</li>
+        </ul>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <h3 class="job-title">Systems Integration Specialist</h3>
+          <div class="job-meta">
+            <span class="job-date">Jun 2025 – Dec 2026</span>
+            <span class="job-type">On-site</span>
+          </div>
+        </div>
+        <ul class="job-bullets">
+          <li>Integrated 15+ cloud SaaS platforms using APIs and no-code/low-code automation tools, streamlining data flow across marketing, finance, and operations.</li>
+          <li>Supported CRM migration and automation setup for clients in EDIFY, reducing onboarding time by 40%.</li>
+          <li>Wrote Python and JavaScript scripts to extend automation platform capabilities and handle complex conditional logic.</li>
+          <li>Collaborated with cross-functional stakeholders to map business processes, identify automation opportunities, and deliver workflow solutions on time.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTIC AI -->
+<section class="ai-section" id="ai">
+  <div class="section-inner">
+    <p class="section-label reveal">Specialist Area</p>
+    <h2 class="section-title reveal">Agentic AI Expertise</h2>
+    <p class="section-sub reveal">Building the next generation of autonomous, intelligent systems that think and act for your business.</p>
+
+    <div class="ai-cards">
+      <div class="ai-card reveal">
+        <div class="ai-card-icon">🧠</div>
+        <h3 class="ai-card-title">Autonomous AI Agents</h3>
+        <p class="ai-card-text">Architect and deploy autonomous agents using LangChain, AutoGen, and CrewAI frameworks capable of multi-step task execution and decision-making.</p>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-card-icon">🔗</div>
+        <h3 class="ai-card-title">LLM Integration</h3>
+        <p class="ai-card-text">Integrate large language models (GPT-4, Claude, Gemini) into business workflows for intelligent document processing, support triage, and decision automation.</p>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-card-icon">📚</div>
+        <h3 class="ai-card-title">RAG Pipelines</h3>
+        <p class="ai-card-text">Build Retrieval-Augmented Generation pipelines to ground AI agents in company-specific knowledge bases and live data sources.</p>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-card-icon">👤</div>
+        <h3 class="ai-card-title">Human-in-the-Loop Design</h3>
+        <p class="ai-card-text">Design agentic systems that balance full automation with critical oversight checkpoints for compliance-sensitive operations.</p>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-card-icon">🔁</div>
+        <h3 class="ai-card-title">Hybrid Intelligent Stacks</h3>
+        <p class="ai-card-text">Combine AI agents with automation platforms (n8n, Make) to create hybrid intelligent-automation stacks across CRM, data ops, and customer success.</p>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-card-icon">📈</div>
+        <h3 class="ai-card-title">Lead Qualification AI</h3>
+        <p class="ai-card-text">Engineer end-to-end AI scoring models integrated with CRM triggers and email nurture sequences for measurable sales pipeline improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack">
+  <div class="section-inner">
+    <p class="section-label reveal">Technical Skills</p>
+    <h2 class="section-title reveal">Full Tech Stack</h2>
+    <p class="section-sub reveal">Every tool in my arsenal for building scalable, intelligent automation systems.</p>
+
+    <div class="stack-grid">
+      <div class="stack-group reveal">
+        <div class="stack-group-title">Automation Platforms</div>
+        <div class="stack-tags">
+          <span class="tag">Make (Integromat)</span>
+          <span class="tag">n8n</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">Power Automate</span>
+          <span class="tag">ActivePieces</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <div class="stack-group-title">Agentic AI Frameworks</div>
+        <div class="stack-tags">
+          <span class="tag">LangChain</span>
+          <span class="tag">AutoGen</span>
+          <span class="tag">CrewAI</span>
+          <span class="tag">OpenAI Assistants API</span>
+          <span class="tag">Flowise</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <div class="stack-group-title">CRM & Marketing</div>
+        <div class="stack-tags">
+          <span class="tag">HubSpot</span>
+          <span class="tag">Salesforce</span>
+          <span class="tag">Pipedrive</span>
+          <span class="tag">Klaviyo</span>
+          <span class="tag">ActiveCampaign</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <div class="stack-group-title">Languages & Scripting</div>
+        <div class="stack-tags">
+          <span class="tag">Python</span>
+          <span class="tag">JavaScript (Node.js)</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Bash</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <div class="stack-group-title">APIs & Integration</div>
+        <div class="stack-tags">
+          <span class="tag">REST APIs</span>
+          <span class="tag">Webhooks</span>
+          <span class="tag">OAuth 2.0</span>
+          <span class="tag">JSON/XML</span>
+          <span class="tag">Postman</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <div class="stack-group-title">Cloud & SaaS</div>
+        <div class="stack-tags">
+          <span class="tag">AWS</span>
+          <span class="tag">Google Cloud</span>
+          <span class="tag">Notion</span>
+          <span class="tag">Airtable</span>
+          <span class="tag">Slack</span>
+          <span class="tag">Google Workspace</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <div class="stack-group-title">AI / ML Tools</div>
+        <div class="stack-tags">
+          <span class="tag">OpenAI API</span>
+          <span class="tag">Anthropic Claude API</span>
+          <span class="tag">Pinecone</span>
+          <span class="tag">Chroma</span>
+          <span class="tag">LlamaIndex</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <div class="stack-group-title">Documentation</div>
+        <div class="stack-tags">
+          <span class="tag">Notion</span>
+          <span class="tag">Confluence</span>
+          <span class="tag">Loom</span>
+          <span class="tag">Technical Writing</span>
+          <span class="tag">Process Mapping</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section style="background: var(--bg2);">
+  <div class="section-inner">
+    <p class="section-label reveal">Academic Background</p>
+    <h2 class="section-title reveal">Education</h2>
+
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">Bachelor of Science in Computer Science</div>
+        <div class="edu-institution">NTUF — National Textile University</div>
+        <div class="edu-location">📍 Faisalabad, Punjab, Pakistan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <p class="section-label reveal" style="justify-content: center;">Get In Touch</p>
+    <h2 class="section-title reveal">Let's Build Something Together</h2>
+    <p class="section-sub reveal" style="margin: 0 auto 0; max-width: 480px;">Fully available for full-time remote engagements. Open to immediate start. Let's automate your business.</p>
+
+    <div class="contact-grid">
+      <a href="mailto:aammanaapp@gmail.com" class="contact-card reveal">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">aammanaapp@gmail.com</div>
+        </div>
+      </a>
+      <a href="tel:+923297267687" class="contact-card reveal">
+        <span class="contact-icon">📞</span>
+        <div>
+          <div class="contact-label">Phone / WhatsApp</div>
+          <div class="contact-value">+92 329 726 7687</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/abdul-rehman-293853385" target="_blank" rel="noopener" class="contact-card reveal">
+        <span class="contact-icon">💼</span>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">abdul-rehman-293853385</div>
+        </div>
+      </a>
+      <div class="contact-card reveal" style="cursor: default;">
+        <span class="contact-icon">📍</span>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Faisalabad, Punjab, Pakistan — Remote Ready 🌍</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Abdul<span>.</span>Rehman</div>
+  <span>Automation Engineer & Agentic AI Specialist · Remote Worldwide</span>
+  <span>© 2025 Abdul Rehman</span>
+</footer>
+
+<script>
+  // Particles
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (8 + Math.random() * 14) + 's';
+    p.style.animationDelay = (Math.random() * 12) + 's';
+    p.style.opacity = 0;
+    if (Math.random() > 0.5) {
+      p.style.background = '#7c3aed';
+    }
+    container.appendChild(p);
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => io.observe(r));
+</script>
+</body>
+</html>
